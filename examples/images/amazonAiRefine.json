@@ -1,0 +1,55 @@
+{
+  "title": "WHOOP 5.0 Activity Tracker",
+  "description": "A 12-month membership, WHOOP 5.0 device, a SuperKnit band, and a waterproof Wireless PowerPack for health and fitness tracking",
+  "inTheBox": "",
+  "price": "9648",
+  "category": "Accessory",
+  "brand": "WHOOP",
+  "images": [
+    {
+      "thumbnailUrl": "https://m.media-amazon.com/images/I/31wN2FZpfZL._AC_US40_.jpg",
+      "largeUrl": "https://m.media-amazon.com/images/I/31wN2FZpfZL._A._SL1500_.jpg"
+    }
+  ],
+  "videos": [
+    {
+      "thumbnailUrl": "https://m.media-amazon.com/images/I/41u-FywWYFL.SS40_BG85,85,85_BR-120_PKdp-play-icon-overlay__._SL1500_.jpg",
+      "videoUrl": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/fa3113fd-847d-4ad6-a360-04fdb13fa4c6/default.jobtemplate.hls.m3u8"
+    }
+  ],
+  "specs": [
+    {
+      "attribute": "Battery Life",
+      "value": "14 days"
+    },
+    {
+      "attribute": "Sensor Type",
+      "value": "Optical"
+    },
+    {
+      "attribute": "Weight",
+      "value": "0.25 Pounds"
+    },
+    {
+      "attribute": "Material",
+      "value": "Nylon"
+    }
+  ],
+  "features": [
+    "24/7 Activity and Sleep Tracking",
+    "Personalized Coaching",
+    "Menstrual Cycle Insights"
+  ],
+  "metaTitle": "WHOOP 5.0 Activity Tracker - 12 Month Membership",
+  "metaDescription": "Buy WHOOP 5.0 Activity Tracker with 12-month membership for health and fitness tracking",
+  "metaKeywords": [
+    "WHOOP",
+    "Activity Tracker",
+    "Fitness Wearable",
+    "Health Monitoring"
+  ],
+  "isDuplicate": {
+    "message": "No issues detected.",
+    "error": false
+  }
+}

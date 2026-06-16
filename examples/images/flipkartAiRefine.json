@@ -1,0 +1,62 @@
+{
+  "title": "vivo X300 FE (256 GB Storage, 12 GB RAM)",
+  "description": "",
+  "inTheBox": "1 x Handset, 1 x Documentation, 1 x Type-C Cable, 1 x USB Power Adapter, 1 x SIM Ejector, 1 x Protective Case, 1 x Protective Film (applied)",
+  "price": "₹79,999",
+  "category": "Smart Phone",
+  "brand": "vivo",
+  "images": [
+    {
+      "thumbnailUrl": "https://rukminim1.flixcart.com/image/80/110/xif0q/mobile/n/q/b/-original-imahnhc3jzeqmvh8.jpeg?q=90",
+      "largeUrl": "https://rukminim1.flixcart.com/image/800/1070/xif0q/mobile/n/q/b/-original-imahnhc3jzeqmvh8.jpeg?q=90"
+    }
+  ],
+  "videos": [
+    {
+      "thumbnailUrl": "https://img.youtube.com/vi/4nDLsbhGrPM/0.jpg?q=90",
+      "videoUrl": "https://www.youtube.com/watch?v=4nDLsbhGrPM"
+    }
+  ],
+  "specs": [
+    {
+      "attribute": "Battery Capacity",
+      "value": "6500 mAh"
+    },
+    {
+      "attribute": "Display Size",
+      "value": "16.03 cm (6.31 inch)"
+    },
+    {
+      "attribute": "Resolution",
+      "value": "2640 × 1216 pixel"
+    },
+    {
+      "attribute": "Processor Type",
+      "value": "Snapdragon 8 Gen 5"
+    },
+    {
+      "attribute": "Primary Camera",
+      "value": "50MP + 50MP + 8MP"
+    },
+    {
+      "attribute": "Secondary Camera",
+      "value": "50MP Front Camera"
+    },
+    {
+      "attribute": "Internal Storage",
+      "value": "256 GB"
+    },
+    {
+      "attribute": "RAM",
+      "value": "12 GB"
+    }
+  ],
+  "features": [],
+  "metaTitle": "vivo X300 FE (256 GB Storage, 12 GB RAM)",
+  "metaDescription": "",
+  "metaKeywords": [],
+  "isDuplicate": {
+    "message": "No issues detected.",
+    "error": false
+  }
+}
