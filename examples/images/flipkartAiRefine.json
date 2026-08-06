@@ -1,62 +1,203 @@
 {
-  "title": "vivo X300 FE (256 GB Storage, 12 GB RAM)",
-  "description": "",
-  "inTheBox": "1 x Handset, 1 x Documentation, 1 x Type-C Cable, 1 x USB Power Adapter, 1 x SIM Ejector, 1 x Protective Case, 1 x Protective Film (applied)",
-  "price": "₹79,999",
-  "category": "Smart Phone",
-  "brand": "vivo",
-  "images": [
-    {
-      "thumbnailUrl": "https://rukminim1.flixcart.com/image/80/110/xif0q/mobile/n/q/b/-original-imahnhc3jzeqmvh8.jpeg?q=90",
-      "largeUrl": "https://rukminim1.flixcart.com/image/800/1070/xif0q/mobile/n/q/b/-original-imahnhc3jzeqmvh8.jpeg?q=90"
+  "status": "success",
+  "data": {
+    "title": "vivo T5x 5G (128 GB Storage, 6 GB RAM)",
+    "description": "The vivo T5x 5G is a powerful smartphone with a large 6.76-inch display, 128 GB of internal storage, and 6 GB of RAM. It features a 50MP + 2MP primary camera and a 32MP front camera, along with a long-lasting 7200 mAh battery.",
+    "inTheBox": "1 x Handset, 1 x Quick Start Guide, 1 x USB Cable, 1 x Charger, 1 x Eject Tool, 1 x Phone Case, 1 x Protective Film (applied), 1 x Warranty Card",
+    "category": "Smart Phones",
+    "brand": "vivo",
+    "found_attributes": [
+      {
+        "att_id": 2,
+        "att_name": "RAM",
+        "scraped_name": "RAM",
+        "att_value": "6 GB"
+      },
+      {
+        "att_id": 3,
+        "att_name": "storage",
+        "scraped_name": "Internal Storage",
+        "att_value": "128 GB"
+      },
+      {
+        "att_id": 5,
+        "att_name": "battery",
+        "scraped_name": "Battery Capacity",
+        "att_value": "7200 mAh"
+      },
+      {
+        "att_id": 6,
+        "att_name": "screen size",
+        "scraped_name": "Display Size",
+        "att_value": "6.76 inch"
+      },
+      {
+        "att_id": 7,
+        "att_name": "OS",
+        "scraped_name": "Operating System",
+        "att_value": "Android 16"
+      }
+    ],
+    "ambiguous_attributes": [
+      {
+        "att_id": 1,
+        "att_name": "color",
+        "scraped_name": "Color",
+        "att_value": "Star Silver"
+      },
+      {
+        "att_id": 4,
+        "att_name": "weight",
+        "scraped_name": "Weight",
+        "att_value": "219 g"
+      }
+    ],
+    "new_attributes": [
+      {
+        "scraped_name": "Primary Camera",
+        "att_value": "50MP + 2MP"
+      },
+      {
+        "scraped_name": "Secondary Camera",
+        "att_value": "32MP Front Camera"
+      },
+      {
+        "scraped_name": "Processor Type",
+        "att_value": "Dimensity 7400-Turbo"
+      },
+      {
+        "scraped_name": "Network Type",
+        "att_value": "2G, 3G, 4G, 4G VOLTE, 5G"
+      }
+    ],
+    "features": [
+      "50MP + 2MP primary camera",
+      "32MP front camera",
+      "6.76-inch display",
+      "128 GB internal storage",
+      "6 GB RAM",
+      "7200 mAh battery",
+      "Android 16 operating system",
+      "Dimensity 7400-Turbo processor"
+    ],
+    "metaTitle": "vivo T5x 5G (128 GB Storage, 6 GB RAM) - Buy Now",
+    "metaDescription": "Get the latest vivo T5x 5G smartphone with 128 GB storage, 6 GB RAM, and a powerful Dimensity 7400-Turbo processor. Order now and experience the best of Android 16.",
+    "metaKeywords": [
+      "vivo T5x 5G",
+      "smartphone",
+      "Android 16",
+      "Dimensity 7400-Turbo",
+      "128 GB storage",
+      "6 GB RAM"
+    ],
+    "images": [
+      {
+        "thumbnail": "https:\/\/rukminim1.flixcart.com\/image\/80\/110\/xif0q\/mobile\/z\/m\/e\/-enriched-transparent-original-imahhhfv5ffnzjbv.png?q=90",
+        "url": "https:\/\/rukminim1.flixcart.com\/image\/800\/1070\/xif0q\/mobile\/z\/m\/e\/-enriched-transparent-original-imahhhfv5ffnzjbv.png?q=90"
+      },
+      {
+        "thumbnail": "https:\/\/rukminim1.flixcart.com\/image\/80\/110\/xif0q\/mobile\/c\/7\/b\/-original-imahhmcn4pgkzaq3.jpeg?q=90",
+        "url": "https:\/\/rukminim1.flixcart.com\/image\/800\/1070\/xif0q\/mobile\/c\/7\/b\/-original-imahhmcn4pgkzaq3.jpeg?q=90"
+      },
+      {
+        "thumbnail": "https:\/\/rukminim1.flixcart.com\/image\/80\/110\/xif0q\/mobile\/7\/n\/p\/-original-imahhhfvyzyszazs.jpeg?q=90",
+        "url": "https:\/\/rukminim1.flixcart.com\/image\/800\/1070\/xif0q\/mobile\/7\/n\/p\/-original-imahhhfvyzyszazs.jpeg?q=90"
+      },
+      {
+        "thumbnail": "https:\/\/rukminim1.flixcart.com\/image\/80\/110\/xif0q\/mobile\/d\/v\/5\/-original-imahhhfvg5qyhfzg.jpeg?q=90",
+        "url": "https:\/\/rukminim1.flixcart.com\/image\/800\/1070\/xif0q\/mobile\/d\/v\/5\/-original-imahhhfvg5qyhfzg.jpeg?q=90"
+      },
+      {
+        "thumbnail": "https:\/\/rukminim1.flixcart.com\/image\/80\/110\/xif0q\/mobile\/o\/i\/k\/-original-imahhhfv3zdg3sfz.jpeg?q=90",
+        "url": "https:\/\/rukminim1.flixcart.com\/image\/800\/1070\/xif0q\/mobile\/o\/i\/k\/-original-imahhhfv3zdg3sfz.jpeg?q=90"
+      },
+      {
+        "thumbnail": "https:\/\/rukminim1.flixcart.com\/image\/80\/110\/xif0q\/mobile\/a\/o\/y\/-original-imahzh45dncmaa9x.jpeg?q=90",
+        "url": "https:\/\/rukminim1.flixcart.com\/image\/800\/1070\/xif0q\/mobile\/a\/o\/y\/-original-imahzh45dncmaa9x.jpeg?q=90"
+      },
+      {
+        "thumbnail": "https:\/\/rukminim1.flixcart.com\/image\/80\/110\/xif0q\/mobile\/j\/q\/o\/-original-imahhhfvf2snzmy4.jpeg?q=90",
+        "url": "https:\/\/rukminim1.flixcart.com\/image\/800\/1070\/xif0q\/mobile\/j\/q\/o\/-original-imahhhfvf2snzmy4.jpeg?q=90"
+      },
+      {
+        "thumbnail": "https:\/\/rukminim1.flixcart.com\/image\/80\/110\/xif0q\/mobile\/o\/w\/r\/-original-imahhhfvntg5smjt.jpeg?q=90",
+        "url": "https:\/\/rukminim1.flixcart.com\/image\/800\/1070\/xif0q\/mobile\/o\/w\/r\/-original-imahhhfvntg5smjt.jpeg?q=90"
+      },
+      {
+        "thumbnail": "https:\/\/rukminim1.flixcart.com\/image\/80\/110\/xif0q\/mobile\/n\/w\/g\/-original-imahhhfvwyty9ss8.jpeg?q=90",
+        "url": "https:\/\/rukminim1.flixcart.com\/image\/800\/1070\/xif0q\/mobile\/n\/w\/g\/-original-imahhhfvwyty9ss8.jpeg?q=90"
+      },
+      {
+        "thumbnail": "https:\/\/rukminim1.flixcart.com\/image\/80\/110\/xif0q\/mobile\/i\/h\/i\/-original-imahhhfvjpghbyrf.jpeg?q=90",
+        "url": "https:\/\/rukminim1.flixcart.com\/image\/800\/1070\/xif0q\/mobile\/i\/h\/i\/-original-imahhhfvjpghbyrf.jpeg?q=90"
+      },
+      {
+        "thumbnail": "https:\/\/rukminim1.flixcart.com\/image\/80\/110\/xif0q\/mobile\/s\/m\/8\/-original-imahhhfvgzghynxz.jpeg?q=90",
+        "url": "https:\/\/rukminim1.flixcart.com\/image\/800\/1070\/xif0q\/mobile\/s\/m\/8\/-original-imahhhfvgzghynxz.jpeg?q=90"
+      },
+      {
+        "thumbnail": "https:\/\/rukminim1.flixcart.com\/image\/80\/110\/xif0q\/mobile\/l\/6\/e\/-original-imahhhfvs4hnmxgd.jpeg?q=90",
+        "url": "https:\/\/rukminim1.flixcart.com\/image\/800\/1070\/xif0q\/mobile\/l\/6\/e\/-original-imahhhfvs4hnmxgd.jpeg?q=90"
+      },
+      {
+        "thumbnail": "https:\/\/rukminim1.flixcart.com\/image\/80\/110\/xif0q\/mobile\/y\/6\/2\/-original-imahhhfvw9zasyyh.jpeg?q=90",
+        "url": "https:\/\/rukminim1.flixcart.com\/image\/800\/1070\/xif0q\/mobile\/y\/6\/2\/-original-imahhhfvw9zasyyh.jpeg?q=90"
+      },
+      {
+        "thumbnail": "https:\/\/rukminim1.flixcart.com\/image\/80\/110\/xif0q\/mobile\/s\/f\/q\/-original-imahhhfvzfsezehu.jpeg?q=90",
+        "url": "https:\/\/rukminim1.flixcart.com\/image\/800\/1070\/xif0q\/mobile\/s\/f\/q\/-original-imahhhfvzfsezehu.jpeg?q=90"
+      },
+      {
+        "thumbnail": "https:\/\/rukminim1.flixcart.com\/image\/80\/110\/xif0q\/mobile\/2\/n\/m\/-original-imahhhfv5e9vgwfw.jpeg?q=90",
+        "url": "https:\/\/rukminim1.flixcart.com\/image\/800\/1070\/xif0q\/mobile\/2\/n\/m\/-original-imahhhfv5e9vgwfw.jpeg?q=90"
+      },
+      {
+        "thumbnail": "https:\/\/rukminim1.flixcart.com\/image\/80\/110\/xif0q\/mobile\/h\/c\/6\/-original-imahhhfvmhay7ryb.jpeg?q=90",
+        "url": "https:\/\/rukminim1.flixcart.com\/image\/800\/1070\/xif0q\/mobile\/h\/c\/6\/-original-imahhhfvmhay7ryb.jpeg?q=90"
+      },
+      {
+        "thumbnail": "https:\/\/rukminim1.flixcart.com\/image\/80\/110\/xif0q\/mobile\/x\/p\/n\/-original-imahhhfvw7yyheyf.jpeg?q=90",
+        "url": "https:\/\/rukminim1.flixcart.com\/image\/800\/1070\/xif0q\/mobile\/x\/p\/n\/-original-imahhhfvw7yyheyf.jpeg?q=90"
+      },
+      {
+        "thumbnail": "https:\/\/rukminim1.flixcart.com\/image\/80\/110\/xif0q\/mobile\/i\/h\/a\/-original-imahhhfvr8hxzk7q.jpeg?q=90",
+        "url": "https:\/\/rukminim1.flixcart.com\/image\/800\/1070\/xif0q\/mobile\/i\/h\/a\/-original-imahhhfvr8hxzk7q.jpeg?q=90"
+      },
+      {
+        "thumbnail": "https:\/\/rukminim1.flixcart.com\/image\/80\/110\/xif0q\/mobile\/x\/u\/s\/-original-imahhhfvdmyaktsv.jpeg?q=90",
+        "url": "https:\/\/rukminim1.flixcart.com\/image\/800\/1070\/xif0q\/mobile\/x\/u\/s\/-original-imahhhfvdmyaktsv.jpeg?q=90"
+      },
+      {
+        "thumbnail": "https:\/\/rukminim1.flixcart.com\/image\/80\/110\/xif0q\/mobile\/i\/3\/f\/-original-imahhhfvtvanarz7.jpeg?q=90",
+        "url": "https:\/\/rukminim1.flixcart.com\/image\/800\/1070\/xif0q\/mobile\/i\/3\/f\/-original-imahhhfvtvanarz7.jpeg?q=90"
+      },
+      {
+        "thumbnail": "https:\/\/rukminim1.flixcart.com\/image\/80\/110\/xif0q\/mobile\/x\/f\/k\/-original-imahhhfv2cnv2ya8.jpeg?q=90",
+        "url": "https:\/\/rukminim1.flixcart.com\/image\/800\/1070\/xif0q\/mobile\/x\/f\/k\/-original-imahhhfv2cnv2ya8.jpeg?q=90"
+      },
+      {
+        "thumbnail": "https:\/\/rukminim1.flixcart.com\/image\/80\/110\/xif0q\/mobile\/k\/g\/r\/-original-imahhhfvp3yz6574.jpeg?q=90",
+        "url": "https:\/\/rukminim1.flixcart.com\/image\/800\/1070\/xif0q\/mobile\/k\/g\/r\/-original-imahhhfvp3yz6574.jpeg?q=90"
+      }
+    ],
+    "videos": [
+      {
+        "id": "6LKi7cZvRh8",
+        "url": "https:\/\/www.youtube.com\/watch?v=6LKi7cZvRh8",
+        "embedUrl": "https:\/\/www.youtube.com\/embed\/6LKi7cZvRh8",
+        "thumbnail": "https:\/\/img.youtube.com\/vi\/6LKi7cZvRh8\/0.jpg?q=90"
+      },
+      {
+        "id": "avxhjSd8Kls",
+        "url": "https:\/\/www.youtube.com\/watch?v=avxhjSd8Kls",
+        "embedUrl": "https:\/\/www.youtube.com\/embed\/avxhjSd8Kls",
+        "thumbnail": "https:\/\/img.youtube.com\/vi\/avxhjSd8Kls\/0.jpg?q=90"
+      }
+    ],
+    "price": "\u20b924,999",
+    "isDuplicate": {
+      "message": "This product JSON appears to be a duplicate of a previously processed item.",
+      "error": true
     }
-  ],
-  "videos": [
-    {
-      "thumbnailUrl": "https://img.youtube.com/vi/4nDLsbhGrPM/0.jpg?q=90",
-      "videoUrl": "https://www.youtube.com/watch?v=4nDLsbhGrPM"
-    }
-  ],
-  "specs": [
-    {
-      "attribute": "Battery Capacity",
-      "value": "6500 mAh"
-    },
-    {
-      "attribute": "Display Size",
-      "value": "16.03 cm (6.31 inch)"
-    },
-    {
-      "attribute": "Resolution",
-      "value": "2640 × 1216 pixel"
-    },
-    {
-      "attribute": "Processor Type",
-      "value": "Snapdragon 8 Gen 5"
-    },
-    {
-      "attribute": "Primary Camera",
-      "value": "50MP + 50MP + 8MP"
-    },
-    {
-      "attribute": "Secondary Camera",
-      "value": "50MP Front Camera"
-    },
-    {
-      "attribute": "Internal Storage",
-      "value": "256 GB"
-    },
-    {
-      "attribute": "RAM",
-      "value": "12 GB"
-    }
-  ],
-  "features": [],
-  "metaTitle": "vivo X300 FE (256 GB Storage, 12 GB RAM)",
-  "metaDescription": "",
-  "metaKeywords": [],
-  "isDuplicate": {
-    "message": "No issues detected.",
-    "error": false
   }
 }

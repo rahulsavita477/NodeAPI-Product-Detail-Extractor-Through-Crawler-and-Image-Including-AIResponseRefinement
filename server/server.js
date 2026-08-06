@@ -60,11 +60,15 @@ app.post("/api/extract", upload.array("images", 10), async (req, res) => {
         const product = await extractProduct(paths, {
             model: req.body?.model || undefined,
         });
+
         product.isDuplicate = dup;
         res.json(product);
+
     } catch (err) {
+
         console.error(err);
         res.status(500).json({ error: err.message || "Extraction failed" });
+        
     } finally {
         if (dir) await rm(dir, { recursive: true, force: true }).catch(() => { });
     }
@@ -72,15 +76,29 @@ app.post("/api/extract", upload.array("images", 10), async (req, res) => {
 
 // POST /api/flipkart  — JSON body { url }   (add ?refine=true for the unified format)
 app.post("/api/flipkart", async (req, res) => {
-    const url = req.body?.url;
+    
+    const url = req.body.url;
+    const category = req.body.category;
+    const brand = req.body.brand;
+    const attributes = req.body.attributes;
+
     try {
+        
         // Dedupe on the URL (stable), not the AI/crawler output (varies per call).
         const dup = checkDuplicate(url);
         let product = await crawlFlipkart(url);
+        product.category = category;
+        product.brand = brand;
+        product.attributes = attributes;
+
         if (wantsRefine(req)) product = await refineJSONUsingAI(product);
+        
         product.isDuplicate = dup;
+        
         res.json(product);
+
     } catch (err) {
+        
         console.error(err);
         res.status(500).json({ error: err.message || "Flipkart crawl failed" });
     }

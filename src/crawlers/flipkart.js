@@ -89,7 +89,7 @@ async function fetchWithPlaywright(url) {
                     .filter(el => /apply offers for maximum savings|lowest price for you|bank offers/i.test(el.innerText || '') && /₹\s*[\d,]+/.test(el.innerText || ''))
                     .sort((a, b) => (a.innerText || '').length - (b.innerText || '').length)[0];
                 const m = mainBox && mainBox.innerText.match(/₹\s*([\d,]+)/);
-                if (m) price = '₹' + m[1].trim();
+                if (m) price = m[1].trim();
             }
             // Keep full body text so downstream breadcrumb/brand/category parsing still works.
             const priceText = document.body.innerText || '';
@@ -327,7 +327,7 @@ export async function scrapeFlipkart(url) {
         const sellingMatch = playwrightData.priceText.match(/\d+%\s*off?[^₹]*₹\s*([\d,]+)/i);
         const priceMatch = sellingMatch || playwrightData.priceText.match(/₹[\s]*([\d,]+)/);
         if (priceMatch) {
-            price = "₹" + priceMatch[1].trim();
+            price = priceMatch[1].trim();
         }
     }
 
@@ -335,36 +335,36 @@ export async function scrapeFlipkart(url) {
     let description = "";
 
     // ✅ Brand & Category
-    let brand = "";
-    let category = "";
+    // let brand = "";
+    // let category = "";
     
-    if (playwrightData.priceText) {
+    // if (playwrightData.priceText) {
         // Look for brand in breadcrumb path
-        const breadcrumbMatch = playwrightData.priceText.match(/Mobiles & Accessories[^]*?\/([^\/\n]+)\/([^\n]+)/);
-        if (breadcrumbMatch) {
-            category = breadcrumbMatch[1].trim();
-            brand = breadcrumbMatch[2].trim().split('\n')[0];
-        }
+        // const breadcrumbMatch = playwrightData.priceText.match(/Mobiles & Accessories[^]*?\/([^\/\n]+)\/([^\n]+)/);
+        // if (breadcrumbMatch) {
+        //     category = breadcrumbMatch[1].trim();
+        //     brand = breadcrumbMatch[2].trim().split('\n')[0];
+        // }
         
         // If not found, look for Apple
-        if (!brand && playwrightData.priceText.includes('Apple')) {
-            brand = 'Apple';
-        }
-    }
+        // if (!brand && playwrightData.priceText.includes('Apple')) {
+        //     brand = 'Apple';
+        // }
+    // }
     
     // Fallback from multiWidgetState
-    if (!brand) {
-        brand = findObject(multiWidgetState, (obj) => 
-            (obj?.attribute === 'Brand' && obj?.value) ||
-            (obj?.brandValue && typeof obj.brandValue === 'string')
-        )?.value || "";
-    }
+    // if (!brand) {
+    //     brand = findObject(multiWidgetState, (obj) => 
+    //         (obj?.attribute === 'Brand' && obj?.value) ||
+    //         (obj?.brandValue && typeof obj.brandValue === 'string')
+    //     )?.value || "";
+    // }
     
-    if (!category) {
-        category = findObject(multiWidgetState, (obj) => 
-            obj?.category || (obj?.categoryName && typeof obj.categoryName === 'string')
-        )?.category || "";
-    }
+    // if (!category) {
+    //     category = findObject(multiWidgetState, (obj) => 
+    //         obj?.category || (obj?.categoryName && typeof obj.categoryName === 'string')
+    //     )?.category || "";
+    // }
 
     // ✅ Images from Flipkart initial state gallery first, fallback to Playwright DOM if needed
     let imageUrls = extractGalleryImagesFromState(state);
@@ -438,8 +438,8 @@ export async function scrapeFlipkart(url) {
         description: (description || "").trim(),
         inTheBox: (inTheBox || "").trim(),
         price: (price || "").trim(),
-        category: (category || "").trim(),
-        brand: (brand || "").trim(),
+        // category: (category || "").trim(),
+        // brand: (brand || "").trim(),
         specs,
         features,
         metaTitle: (metaTitle || "").trim(),

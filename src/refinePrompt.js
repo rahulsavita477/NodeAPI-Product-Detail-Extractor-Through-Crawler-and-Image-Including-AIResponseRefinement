@@ -6,27 +6,50 @@ export const TARGET_FORMAT = `{
     "title": "",
     "description": "",
     "inTheBox": "",
-    "price": "",
     "category": "",
     "brand": "",
-    "specs": [{"attribute": "", "value": ""}],
-    "features": ["", ""],
+    "found_attributes": [{
+      "att_id": 12,
+      "att_name": "RAM",
+      "scraped_name": "Memory & RAM",
+      "att_value": "6 GB"
+    }],
+    "ambiguous_attributes": [{
+      "att_id": 22,
+      "att_name": "Front Camera",
+      "scraped_name": "Secondary Camera",
+      "att_value": "8 MP"
+    }],
+    "new_attributes": [{
+      "scraped_name": "Cooling Tech",
+      "att_value": "Vapor Chamber"
+    }],
+    "features": [""],
     "metaTitle": "",
     "metaDescription": "",
     "metaKeywords": [""]
 }`;
 
 export const REFINE_RULES = `Instructions:
-    - Extract title, price, brand, and specs.
-    - Remove attributes that are not useful for user understanding.
-    - Rename confusing attributes into user‑friendly names.
-    - Predict category as a generic type (Laptop, Smart Phone, Featured Phone, Apparel, Furniture, Gaming Console, Accessory).
-    - Generate SEO‑friendly metaTitle, metaDescription, metaKeywords.
-    - Output must be valid JSON only, no extra text.
-    - price MUST be an integer only (digits, no currency symbol, no commas, no decimals, no text). If no price is found, use empty string.
-    - Use empty string / empty array for anything you genuinely cannot find. Do not invent data.
-    - If title, description, brand, specs, or features are missing, predict reasonable values using your own knowledge and the available raw JSON data (combine both). Base predictions on identifiable hints such as model number, barcode, title, or other specs.
-    - Predictions must stay plausible and consistent with the product; do not fabricate prices, exact measurements, or unique identifiers you cannot infer. For those, use empty string / empty array.`;
+    - Extract product title, brand, category, description, inTheBox, features (maximum 3 or 4 only), and specs from the input data.
+    - Clean up raw scraped specifications: remove useless, redundant, or confusing attributes that do not add end-user value.
+    - Rename technical or confusing scraped attribute names into clean, user-friendly names.
+    - Compare scraped specs against the system attributes mapping provided in the 'attributes' key of Raw JSON (Format: { "att_id": "att_name" }).
+    - Categorize mapped specifications into three strict groups: 'found_attributes', 'ambiguous_attributes', and 'new_attributes'.
+    - Generate SEO-friendly metaTitle, metaDescription, and metaKeywords based on product details.
+    - Output MUST be valid JSON only, matching the TARGET_FORMAT strictly with no extra text or markdown code blocks.
+
+Prediction & Fallback Rules:
+    - If specs or features are missing, predict reasonable values using identifiable hints from the available raw data (e.g., title, model number) combined with your knowledge.
+    - Predictions MUST remain plausible and consistent with the product. Do NOT fabricate exact measurements, serial numbers, or unique identifiers you cannot infer—use empty string "" or empty array [] instead.
+
+Attribute Classification Rules:
+    1. 'found_attributes': Exact or clear synonym match with an attribute in 'attributes'.
+       - Must include 'att_id' (extracted as integer or string key from 'attributes'), 'att_name' (value from 'attributes'), 'scraped_name', and 'att_value'.
+    2. 'ambiguous_attributes': Partial, uncertain, or doubtful match with an attribute in 'attributes'.
+       - Use 'att_id' and 'att_name' of the best-guessed attribute from 'attributes'.
+    3. 'new_attributes': Scraped spec does NOT match any system attribute in 'attributes' but is valuable to users.
+       - Only include 'scraped_name' and 'att_value' (Do NOT include att_id or att_name).`;
 
 // System prompt for the IMAGE extractor: one vision call that returns the
 // target format directly (no separate refine step).
@@ -41,7 +64,7 @@ ${REFINE_RULES}`;
 
 // Prompt for refining an already-scraped raw product JSON (crawler data).
 export function buildRefinePrompt(rawJson) {
-  return `You are a JSON transformer. 
+	return `You are a strict JSON transformer. 
     Take ONLY the current raw JSON input and ignore any previous product context. 
     Return a refined JSON object in the exact format below:
 
@@ -49,6 +72,6 @@ export function buildRefinePrompt(rawJson) {
 
     ${REFINE_RULES}
 
-    Raw JSON:
+    Raw JSON Input:
     ${JSON.stringify(rawJson)}`;
 }
