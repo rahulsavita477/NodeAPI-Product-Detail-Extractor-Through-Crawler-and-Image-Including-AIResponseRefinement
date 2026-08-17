@@ -105,13 +105,23 @@ app.post("/api/flipkart", async (req, res) => {
 });
 
 app.post("/api/amazon", async (req, res) => {
+    
     const url = req.body?.url;
+    const category = req.body.category;
+    const brand = req.body.brand;
+    const attributes = req.body.attributes;
+
     try {
         const dup = checkDuplicate(url);
         let product = await crawlAmazon(url);
+        product.category = category;
+        product.brand = brand;
+        product.attributes = attributes;
+
         if (wantsRefine(req)) product = await refineJSONUsingAI(product);
         product.isDuplicate = dup;
         res.json(product);
+
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: err.message || "Amazon crawl failed" });

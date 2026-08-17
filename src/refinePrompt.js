@@ -8,6 +8,12 @@ export const TARGET_FORMAT = `{
     "inTheBox": "",
     "category": "",
     "brand": "",
+	"unfilled_attributes": [{
+      "att_id": 12,
+      "att_name": "RAM",
+      "scraped_name": "",
+      "att_value": ""
+    }],
     "found_attributes": [{
       "att_id": 12,
       "att_name": "RAM",
@@ -21,6 +27,8 @@ export const TARGET_FORMAT = `{
       "att_value": "8 MP"
     }],
     "new_attributes": [{
+      "att_id": "",
+      "att_name": "",
       "scraped_name": "Cooling Tech",
       "att_value": "Vapor Chamber"
     }],
@@ -35,7 +43,7 @@ export const REFINE_RULES = `Instructions:
     - Clean up raw scraped specifications: remove useless, redundant, or confusing attributes that do not add end-user value.
     - Rename technical or confusing scraped attribute names into clean, user-friendly names.
     - Compare scraped specs against the system attributes mapping provided in the 'attributes' key of Raw JSON (Format: { "att_id": "att_name" }).
-    - Categorize mapped specifications into three strict groups: 'found_attributes', 'ambiguous_attributes', and 'new_attributes'.
+    - Categorize mapped specifications into four strict groups: 'unfilled_attributes', 'found_attributes', 'ambiguous_attributes', and 'new_attributes'.
     - Generate SEO-friendly metaTitle, metaDescription, and metaKeywords based on product details.
     - Output MUST be valid JSON only, matching the TARGET_FORMAT strictly with no extra text or markdown code blocks.
 
@@ -49,7 +57,9 @@ Attribute Classification Rules:
     2. 'ambiguous_attributes': Partial, uncertain, or doubtful match with an attribute in 'attributes'.
        - Use 'att_id' and 'att_name' of the best-guessed attribute from 'attributes'.
     3. 'new_attributes': Scraped spec does NOT match any system attribute in 'attributes' but is valuable to users.
-       - Only include 'scraped_name' and 'att_value' (Do NOT include att_id or att_name).`;
+       - Only include 'scraped_name' and 'att_value' (Do NOT include att_id or att_name).
+	4. 'unfilled_attributes': System attributes mapped to the category whose values were NOT found in the scraped data.
+        - Must include 'att_id' (extracted as integer or string key from 'attributes'), 'att_name' (value from 'attributes'), 'scraped_name' (keep null or empty string), and 'att_value' (keep null or empty string).`;
 
 // System prompt for the IMAGE extractor: one vision call that returns the
 // target format directly (no separate refine step).

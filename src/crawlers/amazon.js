@@ -78,12 +78,13 @@ export async function scrapeProduct(url) {
                     if (src.includes('play-icon-overlay')) {
                         let thumb = src.replace(/._SX\d+_|._SY\d+_|._SS\d+_|._US\d+_|._SL\d+_/g, '');
                         if (!thumb.includes('_SL1500_')) thumb = thumb.replace('.jpg', '._SL1500_.jpg');
-                        videos.push({ thumbnailUrl: thumb, videoUrl: null });
+                        videos.push({ thumbnail: thumb, url: null });
                     } else {
                         let thumb = src;
-                        let large = src.replace(/._SX\d+_|._SY\d+_|._SS\d+_|._US\d+_|._SL\d+_/g, '');
-                        if (!large.includes('_SL1500_')) large = large.replace('.jpg', '._SL1500_.jpg');
-                        images.push({ thumbnailUrl: thumb, largeUrl: large });
+                        // let large = src.replace(/._SX\d+_|._SY\d+_|._SS\d+_|._US\d+_|._SL\d+_/g, '');
+                        // if (!large.includes('_SL1500_')) large = large.replace('.jpg', '._SL1500_.jpg');
+                        let large = src.replace(/\._.*_\./g, '.');
+                        images.push({ thumbnail: thumb, url: large });
                     }
                 }
             });
@@ -100,7 +101,7 @@ export async function scrapeProduct(url) {
                 }
             });
             if (videoUrl && videos.length > 0) {
-                videos[0].videoUrl = videoUrl;
+                videos[0].url = videoUrl;
             }
 
             // ✅ Meta fields (basic SEO-friendly defaults)
