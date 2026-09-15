@@ -36,18 +36,10 @@ export async function refineJSONUsingAI(rawJson, options = {}) {
     const refined = parseJsonLoose(content);
     if (!refined) throw new Error("AI refine failed: invalid JSON from model");
     
-    // refine price of product
-    const match = price.match(/[\d,.]+/);
-    if (match) {
-        refined.price = match[0].replace(/,/g, '');
-    } else {
-        refined.price = "";
-    }
-
     // Restore the original images/videos/price from the raw crawler data.
     refined.images = images ?? [];
     refined.videos = videos ?? [];
-    refined.price = price ? parseInt(parseFloat(price.toString().replace(/,/g, '')), 10) : 0;
+    refined.price = price ?? '';
 
     // token estimation
     const inputTokens = completion?.usage?.prompt_tokens;

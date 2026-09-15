@@ -33,18 +33,17 @@ export const TARGET_FORMAT = `{
       "att_value": "Vapor Chamber"
     }],
     "features": [""],
-    "metaTitle": "",
-    "metaDescription": "",
-    "metaKeywords": [""]
+    // "metaTitle": "",
+    // "metaDescription": "",
+    // "metaKeywords": [""]
 }`;
-
+// - Generate SEO-friendly metaTitle, metaDescription, and metaKeywords based on product details.
 export const REFINE_RULES = `Instructions:
     - Extract product title, brand, category, description, inTheBox, features (maximum 3 or 4 only), and specs from the input data.
     - Clean up raw scraped specifications: remove useless, redundant, or confusing attributes that do not add end-user value.
     - Rename technical or confusing scraped attribute names into clean, user-friendly names.
     - Compare scraped specs against the system attributes mapping provided in the 'attributes' key of Raw JSON (Format: { "att_id": "att_name" }).
     - Categorize mapped specifications into four strict groups: 'unfilled_attributes', 'found_attributes', 'ambiguous_attributes', and 'new_attributes'.
-    - Generate SEO-friendly metaTitle, metaDescription, and metaKeywords based on product details.
     - Output MUST be valid JSON only, matching the TARGET_FORMAT strictly with no extra text or markdown code blocks.
 
 Prediction & Fallback Rules:
