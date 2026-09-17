@@ -21,10 +21,10 @@ app.use(cors());
 app.use(express.json());
 
 // crawler endpoints refine only when explicitly asked (?refine=true)
-function wantsRefine(req) {
-    const v = String(req.query.refine ?? req.body?.refine ?? "false");
-    return v === "true" || v === "1";
-}
+// function wantsRefine(req) {
+//     const v = String(req.query.refine ?? req.body?.refine ?? "false");
+//     return v === "true" || v === "1";
+// }
 
 // Health check: confirms server is up and whether GROQ_API_KEY is set
 app.get("/api/health", (_req, res) => {
@@ -33,12 +33,10 @@ app.get("/api/health", (_req, res) => {
 
 // POST /api/extract  — multipart/form-data with one or more "images" files.
 app.post("/api/extract", upload.array("images", 10), async (req, res) => {
+
     const files = req.files || [];
     if (files.length === 0) {
         return res.status(400).json({ error: "Upload at least one image (field name 'images')." });
-    }
-    if (!process.env.GROQ_API_KEY) {
-        return res.status(500).json({ error: "Server is missing GROQ_API_KEY." });
     }
 
     let dir;
