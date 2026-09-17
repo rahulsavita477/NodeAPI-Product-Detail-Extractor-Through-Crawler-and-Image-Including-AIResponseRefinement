@@ -105,11 +105,11 @@ export async function scrapeProduct(url) {
             }
 
             // ✅ Meta fields (basic SEO-friendly defaults)
-            const metaTitle = title ? `${title} | Buy Online on Amazon` : "";
-            const metaDescription = description ? description.slice(0, 160) : "";
-            const metaKeywords = title ? title.split(" ").filter(w => w.length > 3) : [];
+            // const metaTitle = title ? `${title} | Buy Online on Amazon` : "";
+            // const metaDescription = description ? description.slice(0, 160) : "";
+            // const metaKeywords = title ? title.split(" ").filter(w => w.length > 3) : [];
 
-            return { title, description, inTheBox, price, category, brand, features, specs: specsArray, images, videos, metaTitle, metaDescription, metaKeywords };
+            return { title, description, inTheBox, price, category, brand, features, specs: specsArray, images, videos };
         });
 
         // ✅ Validation warnings
@@ -125,10 +125,10 @@ export async function scrapeProduct(url) {
 
 // Gateway adapter — keeps the server's crawlX(url) naming consistent.
 export async function crawlAmazon(url) {
-  if (!url || !/^https?:\/\//i.test(url)) {
-    throw new Error("Provide a valid Amazon product URL");
-  }
-  const product = await scrapeProduct(url);
-  if (!product) throw new Error("Amazon scrape failed (page blocked or layout changed)");
-  return product;
+    if (!url || !/^https?:\/\//i.test(url)) {
+        throw new Error("Provide a valid Amazon product URL");
+    }
+    const product = await scrapeProduct(url);
+    if (!product) throw new Error("Amazon scrape failed (page blocked or layout changed)");
+    return product;
 }

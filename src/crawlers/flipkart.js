@@ -35,7 +35,7 @@ async function fetchWithPlaywright(url) {
             // Button nahi mila, ignore
         }
 
-        await page.waitForSelector('iframe[src*="youtube.com/embed"], iframe[src*="youtube-nocookie.com/embed"], [style*="background-image"]', { timeout: 5000 }).catch(() => {});
+        await page.waitForSelector('iframe[src*="youtube.com/embed"], iframe[src*="youtube-nocookie.com/embed"], [style*="background-image"]', { timeout: 5000 }).catch(() => { });
         await page.waitForTimeout(1000);
 
         const data = await page.evaluate(() => {
@@ -43,7 +43,7 @@ async function fetchWithPlaywright(url) {
             // og:title / twitter:title carry the full, untruncated product name on Flipkart.
             // The visible h1 can contain a "...more" toggle, so prefer the meta tags first.
             title = document.querySelector('meta[property="og:title"]')?.content?.trim() ||
-                    document.querySelector('meta[name="twitter:title"]')?.content?.trim() || '';
+                document.querySelector('meta[name="twitter:title"]')?.content?.trim() || '';
             if (!title) {
                 const titleEl = document.querySelector('[data-title], [data-product-title]');
                 title = titleEl?.getAttribute('data-title')?.trim() || titleEl?.textContent?.trim() || '';
@@ -99,7 +99,7 @@ async function fetchWithPlaywright(url) {
                 .map(img => img.src)
                 .filter(url => url && url.includes('rukminim') && url.includes('xif0q'))
                 .filter((url, idx, arr) => arr.indexOf(url) === idx);
-            
+
             // Extract the product code from the first image (e.g., "imahft6c" from "-original-imahft6chnx2vbuy")
             let productCodePrefix = '';
             if (allImages.length > 0) {
@@ -108,14 +108,14 @@ async function fetchWithPlaywright(url) {
                     productCodePrefix = match[1].substring(0, 8); // Get first 8 chars like "imahft6c"
                 }
             }
-            
+
             // Filter to only images with the same product code prefix
-            const filteredImages = productCodePrefix ? 
-                allImages.filter(url => url.includes(`-original-${productCodePrefix}`)) : 
+            const filteredImages = productCodePrefix ?
+                allImages.filter(url => url.includes(`-original-${productCodePrefix}`)) :
                 allImages;
-            
+
             // const priceText = document.body.innerText || '';
-            
+
             const videos = [];
             Array.from(document.querySelectorAll('iframe[src*="youtube.com/embed"], iframe[src*="youtube-nocookie.com/embed"]')).forEach(f => {
                 try {
@@ -125,14 +125,14 @@ async function fetchWithPlaywright(url) {
                     const watchUrl = id ? `https://www.youtube.com/watch?v=${id}` : src;
                     const thumbnail = id ? `https://img.youtube.com/vi/${id}/mqdefault.jpg` : '';
                     videos.push({ embedUrl: src, watchUrl, id, thumbnail });
-                } catch (e) {}
+                } catch (e) { }
             });
 
             const youtubeThumbnails = Array.from(document.querySelectorAll('img'))
                 .map(img => img.src)
                 .filter(url => url && url.includes('img.youtube.com/vi/'))
                 .filter((url, idx, arr) => arr.indexOf(url) === idx);
-            
+
             return { title, price, images: filteredImages, priceText, videos, youtubeThumbnails };
         });
 
@@ -140,7 +140,7 @@ async function fetchWithPlaywright(url) {
         // Flipkart's bot protection (403 + reCAPTCHA). The headless browser is
         // not blocked, so read the same state from the rendered page as a fallback.
         // It can load late (or be absent), so wait briefly for it.
-        await page.waitForFunction(() => !!window.__INITIAL_STATE__, { timeout: 5000 }).catch(() => {});
+        await page.waitForFunction(() => !!window.__INITIAL_STATE__, { timeout: 5000 }).catch(() => { });
         const initialState = await page
             .evaluate(() => (typeof window !== 'undefined' ? window.__INITIAL_STATE__ || null : null))
             .catch(() => null);
@@ -337,21 +337,21 @@ export async function scrapeFlipkart(url) {
     // ✅ Brand & Category
     // let brand = "";
     // let category = "";
-    
+
     // if (playwrightData.priceText) {
-        // Look for brand in breadcrumb path
-        // const breadcrumbMatch = playwrightData.priceText.match(/Mobiles & Accessories[^]*?\/([^\/\n]+)\/([^\n]+)/);
-        // if (breadcrumbMatch) {
-        //     category = breadcrumbMatch[1].trim();
-        //     brand = breadcrumbMatch[2].trim().split('\n')[0];
-        // }
-        
-        // If not found, look for Apple
-        // if (!brand && playwrightData.priceText.includes('Apple')) {
-        //     brand = 'Apple';
-        // }
+    // Look for brand in breadcrumb path
+    // const breadcrumbMatch = playwrightData.priceText.match(/Mobiles & Accessories[^]*?\/([^\/\n]+)\/([^\n]+)/);
+    // if (breadcrumbMatch) {
+    //     category = breadcrumbMatch[1].trim();
+    //     brand = breadcrumbMatch[2].trim().split('\n')[0];
     // }
-    
+
+    // If not found, look for Apple
+    // if (!brand && playwrightData.priceText.includes('Apple')) {
+    //     brand = 'Apple';
+    // }
+    // }
+
     // Fallback from multiWidgetState
     // if (!brand) {
     //     brand = findObject(multiWidgetState, (obj) => 
@@ -359,7 +359,7 @@ export async function scrapeFlipkart(url) {
     //         (obj?.brandValue && typeof obj.brandValue === 'string')
     //     )?.value || "";
     // }
-    
+
     // if (!category) {
     //     category = findObject(multiWidgetState, (obj) => 
     //         obj?.category || (obj?.categoryName && typeof obj.categoryName === 'string')
@@ -401,7 +401,7 @@ export async function scrapeFlipkart(url) {
                     seenVideos.add(m[1]);
                     videos.push({ id: m[1], url: `https://www.youtube.com/watch?v=${m[1]}`, embedUrl: `https://www.youtube.com/embed/${m[1]}`, thumbnail: img });
                 }
-            } catch (e) {}
+            } catch (e) { }
         });
     }
 
@@ -428,9 +428,9 @@ export async function scrapeFlipkart(url) {
     }
 
     // ✅ Meta fields
-    const metaTitle = title || "";
-    const metaDescription = description || "";
-    const metaKeywords = [];
+    // const metaTitle = title || "";
+    // const metaDescription = description || "";
+    // const metaKeywords = [];
 
     // ✅ Build response with warnings
     const product = {
@@ -442,9 +442,9 @@ export async function scrapeFlipkart(url) {
         // brand: (brand || "").trim(),
         specs,
         features,
-        metaTitle: (metaTitle || "").trim(),
-        metaDescription: (metaDescription || "").trim(),
-        metaKeywords,
+        // metaTitle: (metaTitle || "").trim(),
+        // metaDescription: (metaDescription || "").trim(),
+        // metaKeywords,
         images,
         videos
     };
@@ -455,8 +455,8 @@ export async function scrapeFlipkart(url) {
 
 // Gateway adapter — keeps the server's crawlX(url) naming consistent.
 export async function crawlFlipkart(url) {
-  if (!url || !/^https?:\/\//i.test(url)) {
-    throw new Error("Provide a valid Flipkart product URL");
-  }
-  return scrapeFlipkart(url);
+    if (!url || !/^https?:\/\//i.test(url)) {
+        throw new Error("Provide a valid Flipkart product URL");
+    }
+    return scrapeFlipkart(url);
 }

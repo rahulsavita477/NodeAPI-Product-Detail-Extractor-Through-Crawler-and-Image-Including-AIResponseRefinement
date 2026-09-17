@@ -129,9 +129,9 @@ app.post("/api/amazon", async (req, res) => {
 });
 
 // POST /api/flipkart  — JSON body { url }   (add ?refine=true for the unified format)
-app.post("/api/refine_response", async (req, res) => {
+app.post("/api/refineProductData", async (req, res) => {
 
-    const url = req.body.url;
+    const productJSONData = req.body.productData;
     const category = req.body.category;
     const brand = req.body.brand;
     const attributes = req.body.attributes;
@@ -139,10 +139,11 @@ app.post("/api/refine_response", async (req, res) => {
     try {
 
         let product = {};
+        product.productJSON = productJSONData;
         product.category = category;
         product.brand = brand;
         product.attributes = attributes;
-
+        // console.log(product); return;
         let aiResponse = await refineJSONUsingAI(product);
 
         res.json(aiResponse);
@@ -158,6 +159,6 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`API listening on http://localhost:${PORT}`);
     if (!process.env.GROQ_API_KEY) {
-        console.warn("WARNING: GROQ_API_KEY is not set — /api/extract will fail.");
+        console.warn("Failed To Connect");
     }
 });
