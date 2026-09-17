@@ -10,6 +10,7 @@ import { crawlFlipkart } from "../src/crawlers/flipkart.js";
 import { crawlAmazon } from "../src/crawlers/amazon.js";
 import { refineJSONUsingAI } from "../src/aiRefine.js";
 import { checkDuplicate, imageKey } from "../src/dedupe.js";
+import { authenticateInternalRequest } from "../src/middleware/auth.js";
 
 const app = express();
 const upload = multer({
@@ -27,12 +28,12 @@ app.use(express.json());
 // }
 
 // Health check: confirms server is up and whether GROQ_API_KEY is set
-app.get("/api/health", (_req, res) => {
+app.get("/api/health", authenticateInternalRequest, (_req, res) => {
     res.json({ ok: true, hasKey: Boolean(process.env.GROQ_API_KEY) });
 });
 
 // POST /api/extract  — multipart/form-data with one or more "images" files.
-app.post("/api/extract", upload.array("images", 10), async (req, res) => {
+app.post("/api/extract", authenticateInternalRequest, upload.array("images", 10), async (req, res) => {
 
     const files = req.files || [];
     if (files.length === 0) {
@@ -73,7 +74,7 @@ app.post("/api/extract", upload.array("images", 10), async (req, res) => {
 });
 
 // POST /api/flipkart  — JSON body { url }   (add ?refine=true for the unified format)
-app.post("/api/flipkart", async (req, res) => {
+app.post("/api/flipkart", authenticateInternalRequest, async (req, res) => {
 
     const url = req.body.url;
     // const category = req.body.category;
@@ -102,7 +103,7 @@ app.post("/api/flipkart", async (req, res) => {
     }
 });
 
-app.post("/api/amazon", async (req, res) => {
+app.post("/api/amazon", authenticateInternalRequest, async (req, res) => {
 
     const url = req.body?.url;
     // const category = req.body.category;
@@ -127,7 +128,7 @@ app.post("/api/amazon", async (req, res) => {
 });
 
 // POST /api/flipkart  — JSON body { url }   (add ?refine=true for the unified format)
-app.post("/api/refineProductData", async (req, res) => {
+app.post("/api/refineProductData", authenticateInternalRequest, async (req, res) => {
 
     const productJSONData = req.body.productData;
     const category = req.body.category;
